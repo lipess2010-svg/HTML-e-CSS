@@ -9,11 +9,132 @@
 </head>
 <body>
 
+<!-- ===== LOGIN PAGE ===== -->
+<div id="page-login" class="login-page-full">
+    <button class="theme-toggle-btn" onclick="toggleThemeLogin()" id="themeToggleBtn" title="Alternar tema">🌙</button>
+    
+    <div class="login-container">
+        <div class="login-illustration">
+            <img src="imagens/login.jpg" alt="Login" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'login-illustration-fallback\\'><div style=\\'font-size:80px;\\'>🍔</div><p style=\\'color:#3d5a3a; font-size:18px; font-weight:600;\\'>Bem-vindo à Brasa Burgers!</p></div>'">
+        </div>
+        <div class="login-form-container">
+            <div class="login-logo-big">
+                <img src="imagens/logo brasa burguer.jpg" alt="Brasa Burger" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'font-size:14px;text-align:center;line-height:1.2;color:#f5f0e1;font-weight:700\\'>BRASA<br>BURGER</div>'">
+            </div>
+            <p class="login-tagline">!!! O verdadeiro gosto da brasa !!!</p>
+            <h2 style="color:#2d3a2a; margin-bottom:20px; text-align:center;">Entrar</h2>
+            <input type="email" id="loginEmail" class="form-input" placeholder="Coloque o email" required>
+            <input type="password" id="loginSenha" class="form-input" placeholder="Coloque a senha" required>
+            <div id="loginError" class="error-message" style="display:none;"></div>
+            <div class="login-buttons">
+                <button class="login-btn" onclick="fazerLogin()">Entrar</button>
+                <button class="register-btn" onclick="showPage('cadastro')">Cadastrar-se</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== CADASTRO PAGE ===== -->
+<div id="page-cadastro" class="login-page-full" style="display:none;">
+    <button class="theme-toggle-btn" onclick="toggleThemeLogin()" id="themeToggleBtnCadastro" title="Alternar tema">🌙</button>
+    
+    <div class="login-container">
+        <div class="login-illustration">
+            <img src="imagens/login.jpg" alt="Cadastro" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'login-illustration-fallback\\'><div style=\\'font-size:80px;\\'></div><p style=\\'color:#3d5a3a; font-size:18px; font-weight:600;\\'>Crie sua conta!</p></div>'">
+        </div>
+        <div class="login-form-container">
+            <div class="login-logo-big">
+                <img src="imagens/logo brasa burguer.jpg" alt="Brasa Burger" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'font-size:14px;text-align:center;line-height:1.2;color:#f5f0e1;font-weight:700\\'>BRASA<br>BURGER</div>'">
+            </div>
+            <p class="login-tagline">!!! O verdadeiro gosto da brasa !!!</p>
+            <h2 style="color:#2d3a2a; margin-bottom:20px; text-align:center;">Criar conta</h2>
+            <input type="email" id="cadastroEmail" class="form-input" placeholder="Coloque o email" required>
+            <input type="password" id="cadastroSenha" class="form-input" placeholder="Coloque a senha" required>
+            <input type="password" id="cadastroConfirmarSenha" class="form-input" placeholder="Confirme a senha" required>
+            <div id="cadastroError" class="error-message" style="display:none;"></div>
+            <div id="cadastroSuccess" class="success-message" style="display:none;"></div>
+            <div class="login-buttons">
+                <button class="login-btn" onclick="cadastrar()">Cadastrar</button>
+                <button class="register-btn" onclick="showPage('login')">Voltar ao login</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== TROCAR SENHA PAGE ===== -->
+<div id="page-trocar-senha" class="login-page-full" style="display:none;">
+    <div class="login-container">
+        <div class="login-illustration">
+            <div class="login-illustration-fallback">
+                <div style="font-size:80px;">🔒</div>
+                <p style="color:#3d5a3a; font-size:18px; font-weight:600;">Segurança</p>
+            </div>
+        </div>
+        <div class="login-form-container">
+            <div class="login-logo-big">
+                <img src="imagens/logo brasa burguer.jpg" alt="Brasa Burger" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\\'font-size:14px;text-align:center;line-height:1.2;color:#f5f0e1;font-weight:700\\'>BRASA<br>BURGER</div>'">
+            </div>
+            <h2 style="color:#2d3a2a; margin-bottom:20px; text-align:center;">Trocar senha</h2>
+            <p style="color:#666; font-size:13px; margin-bottom:16px; text-align:center;">Conta: <strong id="trocarSenhaEmail"></strong></p>
+            <input type="password" id="novaSenha" class="form-input" placeholder="Nova senha" required>
+            <input type="password" id="confirmarNovaSenha" class="form-input" placeholder="Confirmar nova senha" required>
+            <div id="trocarSenhaError" class="error-message" style="display:none;"></div>
+            <div id="trocarSenhaSuccess" class="success-message" style="display:none;"></div>
+            <div class="login-buttons">
+                <button class="login-btn" onclick="trocarSenha()">Salvar nova senha</button>
+                <button class="register-btn" onclick="showPage('home')">Voltar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== CONFIGURAÇÕES PAGE ===== -->
+<div id="page-configuracoes" class="login-page-full" style="display:none;">
+    <div class="login-container">
+        <div class="login-illustration">
+            <div class="login-illustration-fallback">
+                <div style="font-size:80px;">⚙️</div>
+                <p style="color:#3d5a3a; font-size:18px; font-weight:600;">Configurações</p>
+            </div>
+        </div>
+        <div class="login-form-container" style="max-width:500px;">
+            <h2 style="color:#2d3a2a; margin-bottom:24px; text-align:center;">Configurações</h2>
+            
+            <div class="config-section">
+                <div class="config-label">Modo escuro</div>
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="config-section">
+                <div class="config-label">Tamanho da fonte</div>
+                <div class="font-size-options">
+                    <button class="font-btn" data-size="small" onclick="setFontSize('small')">A</button>
+                    <button class="font-btn active" data-size="medium" onclick="setFontSize('medium')">A</button>
+                    <button class="font-btn" data-size="large" onclick="setFontSize('large')">A</button>
+                </div>
+            </div>
+
+            <div class="config-section">
+                <div class="config-label">Endereço salvo</div>
+                <div id="enderecoSalvoInfo" style="color:#666; font-size:13px; margin-bottom:12px;">Nenhum endereço salvo</div>
+                <button class="register-btn" onclick="desvincularEndereco()" id="btnDesvincularEndereco" style="display:none;">Desvincular endereço</button>
+            </div>
+
+            <div class="login-buttons" style="margin-top:24px;">
+                <button class="register-btn" onclick="showPage('home')">Voltar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- ===== HEADER ===== -->
-<header class="header">
+<header class="header" id="mainHeader" style="display:none;">
     <div class="header-left">
         <div class="logo">
-            <img src="imagens/logo brasa burguer.jpg" alt="Brasa Burger" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-size:10px;text-align:center;line-height:1.2;color:#f5f0e1\'>BRASA<br>BURGER</span>'">
+            <img src="imagens/logo brasa burguer.jpg" alt="Brasa Burger" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\\'font-size:10px;text-align:center;line-height:1.2;color:#f5f0e1\\'>BRASA<br>BURGER</span>'">
         </div>
         <span class="brand-name">Brasa Burgers</span>
         <nav class="nav-links">
@@ -32,14 +153,38 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
             <span class="cart-count" id="cartCount">0</span>
         </button>
-        <div class="user-avatar">
-            <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+        <div class="user-avatar-wrapper">
+            <div class="user-avatar" onclick="toggleUserMenu()">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+            <div class="user-dropdown" id="userDropdown">
+                <div class="user-dropdown-header">
+                    <div class="user-dropdown-avatar">
+                        <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                    </div>
+                    <div>
+                        <div class="user-dropdown-email" id="userDropdownEmail">usuario@email.com</div>
+                        <div class="user-dropdown-label">Minha conta</div>
+                    </div>
+                </div>
+                <div class="user-dropdown-divider"></div>
+                <div class="user-dropdown-item" onclick="showPage('trocar-senha'); closeUserMenu();">
+                    <span>🔒</span> Segurança (trocar senha)
+                </div>
+                <div class="user-dropdown-item" onclick="showPage('configuracoes'); closeUserMenu();">
+                    <span>⚙️</span> Configurações
+                </div>
+                <div class="user-dropdown-divider"></div>
+                <div class="user-dropdown-item logout" onclick="fazerLogout()">
+                    <span></span> Sair
+                </div>
+            </div>
         </div>
     </div>
 </header>
 
 <!-- ===== MAIN LAYOUT ===== -->
-<div class="main-layout">
+<div class="main-layout" id="mainLayout" style="display:none;">
 
     <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
@@ -73,7 +218,7 @@
     <!-- CONTENT AREA -->
     <main class="content" id="mainContent">
 
-        <!-- ========== HOME PAGE ========== -->
+        <!-- HOME PAGE -->
         <div id="page-home">
             <div class="home-section">
                 <h2 class="section-title">Destaques:</h2>
@@ -93,27 +238,36 @@
             <div class="home-section">
                 <h2 class="section-title">Categorias:</h2>
                 <div class="categories-grid">
-                    <div class="category-card" onclick="showPage('cardapio'); filterCategory('combos');">
-                        <div class="category-icon">🍔</div>
-                        <div class="category-label">Combos</div>
-                    </div>
-                    <div class="category-card" onclick="showPage('cardapio'); filterCategory('bebidas');">
-                        <div class="category-icon">🥤</div>
-                        <div class="category-label">Bebidas</div>
-                    </div>
-                    <div class="category-card" onclick="showPage('cardapio'); filterCategory('hamburgueres');">
-                        <div class="category-icon">🍔</div>
-                        <div class="category-label">Hambúrgueres</div>
-                    </div>
-                    <div class="category-card" onclick="showPage('cardapio'); filterCategory('ofertas');">
-                        <div class="category-icon">🏷️</div>
-                        <div class="category-label">Ofertas</div>
-                    </div>
-                </div>
+    <div class="category-card" onclick="showPage('cardapio'); filterCategory('hamburgueres');">
+        <div class="category-icon">
+            <span class="cat-emoji">🍔</span>
+        </div>
+        <div class="category-label">Hambúrgueres</div>
+    </div>
+    <div class="category-card" onclick="showPage('cardapio'); filterCategory('bebidas');">
+        <div class="category-icon">
+            <span class="cat-emoji">🥤</span>
+        </div>
+        <div class="category-label">Bebidas</div>
+    </div>
+    <div class="category-card" onclick="showPage('cardapio'); filterCategory('combos');">
+        <div class="category-icon">
+            <span class="cat-emoji">🍔</span>
+            <span class="cat-emoji">🍹</span>
+        </div>
+        <div class="category-label">Combos</div>
+    </div>
+    <div class="category-card" onclick="showPage('cardapio'); filterCategory('ofertas');">
+        <div class="category-icon">
+            <span class="cat-emoji">🏷️</span>
+        </div>
+        <div class="category-label">Ofertas</div>
+    </div>
+</div>
             </div>
         </div>
 
-        <!-- ========== CARDÁPIO PAGE ========== -->
+        <!-- CARDÁPIO PAGE -->
         <div id="page-cardapio" style="display:none;">
             <h1 class="page-title" id="pageCardapioTitle">Todos produtos</h1>
             <input type="text" class="search-bar" placeholder="Pesquise o produto..." id="searchInput" oninput="filterProducts()">
@@ -139,24 +293,19 @@
             <div class="product-grid" id="productGrid"></div>
         </div>
 
-        <!-- ========== CARRINHO PAGE ========== -->
+        <!-- CARRINHO PAGE -->
         <div id="page-carrinho" style="display:none;">
             <h1 class="page-title">Seu Carrinho</h1>
             <div class="cart-layout">
                 <div class="cart-items" id="cartItemsList">
                     <p style="color:#999; font-size:15px; padding:40px 0; text-align:center;" id="emptyCartMsg">Seu carrinho está vazio 😕</p>
                 </div>
-                
-                <!-- Sidebar do carrinho (Painel de Edição) -->
                 <div class="cart-sidebar" id="cartSidebar" style="display:none;">
-                    <!-- O display:none aqui garante que ele só apareça ao clicar em Editar -->
                     <div class="cart-detail-panel" id="cartDetailPanel" style="display: none;">
                         <div class="detail-img" id="detailImg"></div>
                         <div class="detail-name" id="detailName"></div>
                         <div class="detail-desc" id="detailDesc"></div>
-                        
                         <div id="editSection"></div>
-                        
                         <button class="finalize-btn" style="width:100%; margin-top:16px;" onclick="finalizeEdit()">Finalizar Edição</button>
                     </div>
                     <button class="finalize-btn" style="width:100%; margin-top:12px;" onclick="finalizeOrder()">Finalizar pedido</button>
@@ -164,60 +313,140 @@
             </div>
         </div>
 
-        <!-- ========== CHECKOUT PAGE ========== -->
+        <!-- CHECKOUT PAGE -->
         <div id="page-checkout" style="display:none;">
             <h1 class="page-title">Finalizar Pedido</h1>
-            <div class="checkout-layout">
-                <div class="checkout-form">
-                    <div class="form-card">
-                        <div class="form-card-title">Endereço:</div>
-                        <input type="text" class="form-input" placeholder="Cidade">
-                        <input type="text" class="form-input" placeholder="Bairro">
-                        <input type="text" class="form-input" placeholder="CEP">
-                        <input type="text" class="form-input" placeholder="Número">
-                        <input type="text" class="form-input" placeholder="Número do ap° (opcional)">
-                    </div>
-                    <div class="form-card">
-                        <div class="form-card-title">Telefone</div>
-                        <input type="tel" class="form-input" placeholder="Digite aqui">
-                    </div>
-                </div>
-                <div class="checkout-payment">
+            <div class="checkout-layout-simple">
+                <div class="checkout-form-simple">
                     <div class="form-card">
                         <div class="form-card-title">Forma de pagamento:</div>
-                        <div class="payment-option selected" onclick="selectPayment(this)">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/></svg>
+                        <div class="payment-option selected" onclick="selectPayment(this, 'pix')" data-method="pix">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                             <span>Pix</span>
                         </div>
-                        <div class="payment-option" onclick="selectPayment(this)">
+                        <div class="payment-option" onclick="selectPayment(this, 'cartao')" data-method="cartao">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                             <span>Cartão</span>
                         </div>
-                        <div class="payment-option" onclick="selectPayment(this)">
+                        <div class="payment-option" onclick="selectPayment(this, 'dinheiro')" data-method="dinheiro">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/></svg>
                             <span>Dinheiro</span>
                         </div>
                     </div>
-                    <button class="confirm-btn" onclick="confirmOrder()">Confirmar pedido</button>
+                    <div class="form-card">
+                        <div class="form-card-title">Telefone</div>
+                        <input type="tel" class="form-input" id="checkoutTelefone" placeholder="Digite aqui">
+                    </div>
+                </div>
+                <div class="checkout-actions">
+                    <button class="confirm-btn" onclick="goToPayment()">Confirmar pedido</button>
                 </div>
             </div>
         </div>
 
-        <!-- ========== LOGIN PAGE ========== -->
-        <div id="page-login" style="display:none;">
-            <div class="login-page">
-                <div class="login-card">
-                    <div class="login-logo">
-                        <img src="imagens/logo brasa burguer.jpg" alt="Brasa Burger" style="width:100%;height:100%;object-fit:cover;border-radius:13px;" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-size:14px;text-align:center;line-height:1.2;color:#f5f0e1\'>BRASA<br>BURGER</span>'">
-                    </div>
-                    <p class="login-tagline">!!! O verdadeiro gosto da brasa !!!</p>
-                    <input type="email" class="form-input" placeholder="Coloque o email">
-                    <input type="password" class="form-input" placeholder="Coloque a senha">
-                    <div style="margin-top:8px;">
-                        <button class="login-btn" onclick="showPage('home')">Entrar</button>
-                        <button class="register-btn">Cadastrar-se</button>
+        <!-- TELA DE PAGAMENTO -->
+        <div id="page-pagamento" style="display:none;">
+            <h1 class="page-title">Pagamento</h1>
+            
+            <!-- Toggle Entrega (apenas para Pix e Cartão) -->
+            <div id="entregaToggleContainer" class="entrega-toggle-container">
+                <label class="entrega-toggle-label">
+                    <span class="entrega-toggle-text">Entrega</span>
+                    <label class="switch-entrega">
+                        <input type="checkbox" id="entregaToggle" onchange="toggleEntrega()">
+                        <span class="slider-entrega"></span>
+                    </label>
+                </label>
+            </div>
+
+            <!-- Seção de Endereço (aparece quando entrega está ativa) -->
+            <div id="enderecoSection" style="display:none;">
+                <div class="form-card">
+                    <div class="form-card-title">Endereço de entrega:</div>
+                    <input type="text" class="form-input" id="pagCidade" placeholder="Cidade">
+                    <input type="text" class="form-input" id="pagBairro" placeholder="Bairro">
+                    <input type="text" class="form-input" id="pagCep" placeholder="CEP">
+                    <input type="text" class="form-input" id="pagNumero" placeholder="Número">
+                    <input type="text" class="form-input" id="pagAp" placeholder="Número do ap° (opcional)">
+                    <label class="save-address-label">
+                        <input type="checkbox" id="saveAddressCheckbox" checked>
+                        <span>Salvar endereço na minha conta</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- PIX -->
+            <div id="pagamentoPix" class="pagamento-section">
+                <div class="form-card">
+                    <div class="form-card-title">Pagamento via Pix</div>
+                    <div class="pix-container">
+                        <img id="pixQrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=pix" alt="QR Code Pix" class="pix-qr">
+                        <p class="pix-info">Escaneie o QR Code para pagar</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- CARTÃO -->
+            <div id="pagamentoCartao" class="pagamento-section" style="display:none;">
+                <div class="form-card">
+                    <div class="form-card-title">Dados do cartão</div>
+                    <input type="text" class="form-input" id="cartaoCpf" placeholder="CPF" maxlength="14" oninput="maskCpf(this)">
+                    <input type="text" class="form-input" id="cartaoNumero" placeholder="Número do cartão" maxlength="19" oninput="maskCard(this)">
+                    <div class="cartao-row">
+                        <input type="text" class="form-input cartao-half" id="cartaoValidade" placeholder="MM/AA" maxlength="5" oninput="maskExpiry(this)">
+                        <input type="text" class="form-input cartao-half" id="cartaoCvv" placeholder="CVV" maxlength="4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- DINHEIRO -->
+            <div id="pagamentoDinheiro" class="pagamento-section" style="display:none;">
+                <div class="form-card">
+                    <div class="form-card-title">Como deseja receber?</div>
+                    <div class="dinheiro-options">
+                        <div class="dinheiro-option selected" onclick="selectDinheiroOption(this, 'retirada')">
+                            <span>🏪</span>
+                            <span>Retirar na loja</span>
+                        </div>
+                        <div class="dinheiro-option" onclick="selectDinheiroOption(this, 'entrega')">
+                            <span></span>
+                            <span>Entrega</span>
+                        </div>
+                    </div>
+                    <!-- Endereço aparece apenas quando seleciona "Entrega" no dinheiro -->
+                    <div id="dinheiroEnderecoSection" style="display:none; margin-top:16px;">
+                        <div class="form-card" style="background:#f5f0e1; border:2px solid #d5ceb8;">
+                            <div class="form-card-title">Endereço de entrega:</div>
+                            <input type="text" class="form-input" id="dinheiroCidade" placeholder="Cidade">
+                            <input type="text" class="form-input" id="dinheiroBairro" placeholder="Bairro">
+                            <input type="text" class="form-input" id="dinheiroCep" placeholder="CEP">
+                            <input type="text" class="form-input" id="dinheiroNumero" placeholder="Número">
+                            <input type="text" class="form-input" id="dinheiroAp" placeholder="Número do ap° (opcional)">
+                            <label class="save-address-label">
+                                <input type="checkbox" id="dinheiroSaveAddress" checked>
+                                <span>Salvar endereço na minha conta</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão Comprar -->
+            <div class="comprar-container">
+                <button class="comprar-btn" id="comprarBtn" onclick="finalizarCompra()" disabled>Comprar</button>
+                <p class="comprar-hint" id="comprarHint">Preencha os campos obrigatórios para continuar</p>
+            </div>
+        </div>
+
+        <!-- TELA DE CONFIRMAÇÃO DO PEDIDO -->
+        <div id="page-confirmacao" style="display:none;">
+            <div class="confirmacao-container">
+                <div class="confirmacao-icon">✅</div>
+                <h2 class="confirmacao-title">Pedido Confirmado!</h2>
+                <p class="confirmacao-text">Seu número de pedido é:</p>
+                <div class="pedido-numero" id="pedidoNumero">001</div>
+                <p class="confirmacao-subtext">Guarde este número para acompanhar seu pedido</p>
+                <button class="confirmacao-btn" onclick="showPage('home')">Voltar ao início</button>
             </div>
         </div>
 
