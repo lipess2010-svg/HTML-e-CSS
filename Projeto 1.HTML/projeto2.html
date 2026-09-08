@@ -1,0 +1,72 @@
+<html>
+    <h1>Finalizar Compra</h1>
+    <form>
+        <fieldset>
+            <legend>Endereço de entrega</legend>
+            <label for="nome destinatario">Nome do destinatário</label>
+            <input type="text" id="nome destinatario" name="nome" required>
+            <br>
+            <br>
+            <label for="CEP">CEP:</label>
+            <input type="text" id="CEP" name="CEP" placeholder="00000-000" size="10" required>
+            <br>
+            <br>
+            <label for="Rua">Rua:</label>
+            <input type="text" id="Rua" name="Rua" size="30" required>
+            <br>
+            <br>
+            <label for="Número">Número:</label>
+            <input type="text" id="Número" name="Número" required>
+            <br>
+            <br>
+            <label for="Complemento">Complemento:</label>
+            <input type="text" id="Complemento" name="Complemento" placeholder="Apto, Bloco, Ponto de referência">
+        </fieldset>
+        <fieldset>
+            <legend>Opções de entrega</legend>
+            <label for="período de entrega">Período de entrega:</label>
+            <select id="período de entrega" name="período de entrega">
+                <option value="manhã">Manhã (8h - 12h)</option>
+                <option value="tarde">Tarde (12h - 18h)</option>
+                <option value="noite">Noite (18h - 22h)</option>
+            </select>
+            <br>
+            <br>
+             <p>Instruções de entrega:</p>
+            <input type="radio" id="deixar na portaria" name="instruções de entrega" value="deixar na portaria">
+            <label for="deixar na portaria">Deixar na portaria</label>
+            <input type="radio" id="entregar em mãos" name="instruções de entrega" value="entregar em mãos">
+            <label for="entregar em mãos">Entregar em mãos</label>
+            <input type="radio" id="ligar ao chegar" name="instruções de entrega" value="ligar ao chegar">
+            <label for="ligar ao chegar">Ligar ao chegar</label>
+    </fieldset>
+    <br>
+
+
+    <fieldset>
+        <legend>Pagamento e Ofertas</legend>
+
+        <label>Cupom de desconto:</label>
+        <input type="text" name="cupom">
+
+        <br><br>
+
+        <input type="checkbox" name="whatsapp">
+        Receber ofertas pelo WhatsApp
+
+    </fieldset>
+
+
+    <br>
+
+
+    <button type="submit">
+        Finalizar Compra
+    </button>
+
+
+</form>
+
+</body>
+
+</html>
